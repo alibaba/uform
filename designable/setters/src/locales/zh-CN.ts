@@ -13,6 +13,16 @@ export default {
         label: '键名',
         value: '键值',
       },
+      ValidatorSetter: {
+        add: '添加规则',
+        configureDataSource: '配置数据源',
+        dataSource: '数据源',
+        defaultTitle: '默认标题',
+        dataSourceTree: '数据源节点树',
+        addNode: '新增节点',
+        label: '键名',
+        value: '键值',
+      },
     },
   },
 }

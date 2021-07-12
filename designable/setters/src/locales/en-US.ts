@@ -13,6 +13,9 @@ export default {
         label: 'label',
         value: 'value',
       },
+      ValidatorSetter: {
+        add: '添加规则',
+      },
     },
   },
 }
