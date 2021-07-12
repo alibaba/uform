@@ -15,6 +15,7 @@ export default {
       },
       ValidatorSetter: {
         add: '添加规则',
+        edit: '编辑规则',
       },
     },
   },

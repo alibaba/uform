@@ -15,6 +15,7 @@ export default {
       },
       ValidatorSetter: {
         add: '添加规则',
+        edit: '编辑规则',
         configureDataSource: '配置数据源',
         dataSource: '数据源',
         defaultTitle: '默认标题',

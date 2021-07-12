@@ -5,7 +5,7 @@ import { ArrayItems, Form, Input, FormItem } from '@formily/antd'
 import { createForm } from '@formily/core'
 import { observer } from '@formily/reactive-react'
 import { createSchemaField } from '@formily/react'
-import { ValueInput } from '@designable/react-settings-form'
+import { ValidatorInput } from './ValidatorInput'
 import { usePrefix, TextWidget } from '@designable/react'
 import { Header } from './Header'
 import { traverseTree } from './shared'
@@ -17,7 +17,7 @@ const SchemaField = createSchemaField({
     FormItem,
     Input,
     ArrayItems,
-    ValueInput,
+    ValidatorInput,
   },
 })
 
@@ -47,7 +47,7 @@ export const ValidatorList: React.FC<IValidatorListProps> = observer(
                   <SchemaField.String
                     x-decorator="FormItem"
                     name="value"
-                    x-component="ValueInput"
+                    x-component="ValidatorInput"
                   />
                   <SchemaField.Void
                     x-component="ArrayItems.Remove"
