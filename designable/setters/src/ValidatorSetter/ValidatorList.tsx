@@ -1,7 +1,13 @@
-import React, { useMemo, Fragment } from 'react'
+import React, { useMemo, Fragment, useState } from 'react'
 import { Button } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
-import { ArrayItems, Form, Input, FormItem } from '@formily/antd'
+import {
+  ArrayItems,
+  Form,
+  Input,
+  FormItem,
+  LifeCycleTypes,
+} from '@formily/antd'
 import { createForm } from '@formily/core'
 import { observer } from '@formily/reactive-react'
 import { createSchemaField } from '@formily/react'
@@ -12,69 +18,50 @@ import { traverseTree } from './shared'
 import { ITreeDataSource } from './types'
 import './styles.less'
 
-const SchemaField = createSchemaField({
-  components: {
-    FormItem,
-    Input,
-    ArrayItems,
-    ValidatorInput,
-  },
-})
-
 export interface IValidatorListProps {
+  onChange
   treeDataSource: ITreeDataSource
   onEditRuleClick(): void
+  validators: any
 }
 
 export const ValidatorList: React.FC<IValidatorListProps> = observer(
   (props) => {
-    const { onEditRuleClick } = props
+    const { onEditRuleClick, validators, onChange } = props
     const prefix = usePrefix('validator-setter')
-    const form = useMemo(() => {
-      let values: any
-      return createForm({
-        values,
-      })
-    }, [])
+    // const [validators, setValidators] = useState([])
+
     return (
       <Fragment>
         <div className={`${prefix + '-content'}`}>
-          <Form form={form}>
-            <SchemaField>
-              <SchemaField.Array name="map" x-component="ArrayItems">
-                <SchemaField.Object
-                  x-decorator="ArrayItems.Item"
-                  x-decorator-props={{ type: 'divide' }}
-                >
-                  <SchemaField.String
-                    x-decorator="FormItem"
-                    name="value"
-                    x-component="ValidatorInput"
-                    x-component-props={{
-                      onEditRuleClick,
-                    }}
-                  />
-                  <SchemaField.Void
-                    x-component="ArrayItems.Remove"
-                    x-component-props={{
-                      style: {
-                        margin: 5,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      },
-                    }}
-                  />
-                </SchemaField.Object>
-              </SchemaField.Array>
-            </SchemaField>
-          </Form>
+          {validators.validators.map((validator, i) => {
+            return (
+              <ValidatorInput
+                key={i}
+                onChange={(d) => {
+                  validators.validators = validators.validators.map(
+                    (validator, ti) => {
+                      if (ti !== i) {
+                        return validator
+                      }
+                      return d
+                    }
+                  )
+                  onChange(validators.validators)
+                }}
+                value={validator}
+                onEditRuleClick={() => {
+                  validators.selectedKey = i
+                  onEditRuleClick()
+                }}
+              ></ValidatorInput>
+            )
+          })}
+
           <Button
             block
             onClick={() => {
-              form.setFieldState('map', (state) => {
-                state.value.push({})
-              })
+              validators.validators = [...validators.validators, '']
             }}
             icon={<PlusOutlined />}
           >

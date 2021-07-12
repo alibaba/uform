@@ -1,9 +1,10 @@
-import React, { Fragment, useMemo, useState } from 'react'
-import cls from 'classnames'
-import { Modal, Button } from 'antd'
-import { observable } from '@formily/reactive'
+import { TextWidget, usePrefix, useTheme } from '@designable/react'
+import { Form, FormItem, Input, Select } from '@formily/antd'
+import { createForm, onFieldValueChange } from '@formily/core'
+import { createSchemaField } from '@formily/react'
 import { observer } from '@formily/reactive-react'
-import { usePrefix, useTheme, TextWidget } from '@designable/react'
+import { Modal } from 'antd'
+import React, { Fragment } from 'react'
 import './styles.less'
 
 const fields = [
@@ -24,6 +25,8 @@ const fields = [
   'message',
 ]
 
+// const actions = createFormActions()
+
 export interface IValidatorModalProps {
   visible?: boolean
   closeModal?(): void
@@ -34,9 +37,27 @@ export interface IValidatorModalProps {
 }
 export const ValidatorModal: React.FC<IValidatorModalProps> = observer(
   (props) => {
-    const { className, value = [], onChange, visible, closeModal } = props
+    const {
+      className,
+      value = [],
+      onChange,
+      visible,
+      closeModal,
+      validators,
+    } = props
+
     const theme = useTheme()
     const prefix = usePrefix('data-source-setter')
+
+    const form = createForm({})
+
+    const SchemaField = createSchemaField({
+      components: {
+        FormItem,
+        Input,
+        Select,
+      },
+    })
 
     return (
       <Fragment>
@@ -49,12 +70,30 @@ export const ValidatorModal: React.FC<IValidatorModalProps> = observer(
           visible={visible}
           onCancel={closeModal}
           onOk={() => {
+            validators.validators = validators.validators =
+              validators.validators.map((validator, ti) => {
+                if (ti !== validators.selectedKey) {
+                  return validator
+                }
+                return form.values
+              })
+
             closeModal()
           }}
         >
-          {fields.map((d) => (
-            <p key={d}>{d}</p>
-          ))}
+          <Form form={form}>
+            <SchemaField>
+              {fields.map((d, i) => (
+                <SchemaField.String
+                  key={i}
+                  name={d}
+                  title={d}
+                  x-component="Input"
+                  x-decorator="FormItem"
+                />
+              ))}
+            </SchemaField>
+          </Form>
         </Modal>
       </Fragment>
     )
