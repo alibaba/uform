@@ -23,10 +23,12 @@ const SchemaField = createSchemaField({
 
 export interface IValidatorListProps {
   treeDataSource: ITreeDataSource
+  onEditRuleClick(): void
 }
 
 export const ValidatorList: React.FC<IValidatorListProps> = observer(
   (props) => {
+    const { onEditRuleClick } = props
     const prefix = usePrefix('validator-setter')
     const form = useMemo(() => {
       let values: any
@@ -48,6 +50,9 @@ export const ValidatorList: React.FC<IValidatorListProps> = observer(
                     x-decorator="FormItem"
                     name="value"
                     x-component="ValidatorInput"
+                    x-component-props={{
+                      onEditRuleClick,
+                    }}
                   />
                   <SchemaField.Void
                     x-component="ArrayItems.Remove"

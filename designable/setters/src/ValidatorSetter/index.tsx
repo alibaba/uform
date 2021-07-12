@@ -5,24 +5,7 @@ import React, { Fragment, useState } from 'react'
 import './styles.less'
 import { IValidatorItem } from './types'
 import { ValidatorList } from './ValidatorList'
-
-const fields = [
-  'triggerType',
-  'format',
-  'validator',
-  'required',
-  'pattern',
-  'max',
-  'maximum',
-  'exclusiveMaximum',
-  'exclusiveMinimum',
-  'minimum',
-  'min',
-  'len',
-  'whitespace',
-  'enum',
-  'message',
-]
+import { ValidatorModal } from './ValidatorModal'
 
 export interface IValidatorSetterProps {
   className?: string
@@ -34,27 +17,19 @@ export const ValidatorSetter: React.FC<IValidatorSetterProps> = observer(
   (props) => {
     const [form] = Form.useForm()
 
-    const [isModalVisible, setIsModalVisible] = useState(false)
+    const [modalVisible, setModalVisible] = useState(false)
+
+    const openModal = () => setModalVisible(true)
+    const closeModal = () => setModalVisible(false)
 
     return (
       <Fragment>
-        <ValidatorList></ValidatorList>
+        <ValidatorList onEditRuleClick={openModal}></ValidatorList>
 
-        <Modal
-          title="Basic Modal"
-          visible={isModalVisible}
-          onCancel={() => {
-            setIsModalVisible(false)
-          }}
-        >
-          {fields.map((d) => (
-            <p key={d}>{d}</p>
-          ))}
-        </Modal>
-        {/* <Button block>
-          <TextWidget token="SettingComponents.ValidatorSetter.addValidator" />
-          添加
-        </Button> */}
+        <ValidatorModal
+          visible={modalVisible}
+          closeModal={closeModal}
+        ></ValidatorModal>
       </Fragment>
     )
   }

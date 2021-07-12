@@ -27,28 +27,30 @@ const isObject = (value: any) => {
   return typeof value === 'object'
 }
 
-export const ValidatorInput = createPolyInput([
-  {
-    type: 'TEXT',
-    icon: 'Text',
-    component: (props: any) => (
-      <Select
-        {...props}
-        options={buildIn.map((d) => ({ label: d, value: d }))}
-      />
-    ),
-    checker: isNormalText,
-  },
-  {
-    type: 'EXPRESSION',
-    icon: 'Expression',
-    component: (props: any) => {
-      return (
-        <Button block>
-          <TextWidget token="SettingComponents.ValidatorSetter.edit" />
-        </Button>
-      )
+export const ValidatorInput = ({ onEditRuleClick, ...props }) => {
+  return createPolyInput([
+    {
+      type: 'TEXT',
+      icon: 'Text',
+      component: (props: any) => (
+        <Select
+          {...props}
+          options={buildIn.map((d) => ({ label: d, value: d }))}
+        />
+      ),
+      checker: isNormalText,
     },
-    checker: isObject,
-  },
-])
+    {
+      type: 'EXPRESSION',
+      icon: 'Expression',
+      component: (props: any) => {
+        return (
+          <Button block onClick={onEditRuleClick}>
+            <TextWidget token="SettingComponents.ValidatorSetter.edit" />
+          </Button>
+        )
+      },
+      checker: isObject,
+    },
+  ])({ ...props })
+}
