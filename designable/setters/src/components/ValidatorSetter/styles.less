@@ -1,0 +1,26 @@
+@import '~antd/lib/style/themes/default.less';
+
+.dn-validator-setter {
+  &-content {
+    width: 100%;
+    &--item {
+      display: flex;
+      align-items: center;
+    }
+    .ant-formily-array-items-divide {
+      padding: 0px;
+      border: none;
+    }
+    .ant-formily-item {
+      flex-grow: 1;
+    }
+  }
+  &-modal {
+    .ant-formily-array-items-item-inner {
+      display: flex;
+      .ant-formily-item:nth-child(2) {
+        flex-grow: 1;
+      }
+    }
+  }
+}

@@ -247,7 +247,7 @@ interface IFormModalProps extends ModalProps {
 }
 ```
 
-`ModalProps`类型定义参考ant design [Modal API](https://ant.design/components/modal-cn/#API)
+`ModalProps`类型定义参考 ant design [Modal API](https://ant.design/components/modal-cn/#API)
 
 ### FormDialog.Footer
 

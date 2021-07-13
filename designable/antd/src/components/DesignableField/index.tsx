@@ -11,7 +11,11 @@ import {
   Schema,
   ISchema,
 } from '@formily/react'
-import { DataSourceSetter, ReactionsSetter } from '@formily/designable-setters'
+import {
+  DataSourceSetter,
+  ReactionsSetter,
+  ValidatorSetter,
+} from '@formily/designable-setters'
 import { FormTab } from '@formily/antd'
 import { clone } from '@formily/shared'
 import { FormItemSwitcher } from '../FormItemSwitcher'
@@ -183,7 +187,7 @@ export const createDesignableField = (options: IDesignableFieldProps) => {
         },
         'x-validator': {
           'x-decorator': 'FormItem',
-          // 'x-component': 'ValidatorSetter',
+          'x-component': ValidatorSetter,
           'x-index': 8,
         },
         required: {

@@ -325,7 +325,7 @@ interface IFormDialogProps extends DialogProps {
 }
 ```
 
-`DialogProps` 类型定义参考fusion [Dialog API](https://fusion.design/pc/component/dialog?themeid=2#API)
+`DialogProps` 类型定义参考 fusion [Dialog API](https://fusion.design/pc/component/dialog?themeid=2#API)
 
 ### FormDialog.Footer
 

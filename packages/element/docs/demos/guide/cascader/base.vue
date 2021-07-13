@@ -40,7 +40,8 @@ const transformAddress = (data = {}) => {
 const useAsyncDataSource = (url, transform) => {
   return (field) => {
     field.loading = true
-    axios.get(url)
+    axios
+      .get(url)
       .then((res) => res.data)
       .then(
         action((data) => {

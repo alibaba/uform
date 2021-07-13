@@ -360,7 +360,7 @@ interface IFormDrawerProps extends DrawerProps {
 }
 ```
 
-`DrawerProps` 类型定义参考fusion [Drawer API](https://fusion.design/pc/component/drawer?themeid=2#API)
+`DrawerProps` 类型定义参考 fusion [Drawer API](https://fusion.design/pc/component/drawer?themeid=2#API)
 
 ### FormDrawer.Footer
 

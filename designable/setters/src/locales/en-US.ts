@@ -42,6 +42,10 @@ export default {
         decoratorProps: 'Decorator Props',
         pleaseSelect: 'Please Select',
       },
+      ValidatorSetter: {
+        add: '添加规则',
+        edit: '编辑规则',
+      },
     },
   },
 }
