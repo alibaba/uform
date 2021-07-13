@@ -4,8 +4,9 @@ import { createForm, onFieldValueChange } from '@formily/core'
 import { createSchemaField } from '@formily/react'
 import { observer } from '@formily/reactive-react'
 import { Modal } from 'antd'
-import React, { Fragment } from 'react'
+import React, { Fragment, useMemo } from 'react'
 import './styles.less'
+import { IValidatorInfo } from './types'
 
 const fields = [
   'triggerType',
@@ -33,23 +34,20 @@ export interface IValidatorModalProps {
   className?: string
   style?: React.CSSProperties
   onChange: (v) => void
-  value: IDataSourceItem[]
+  validatorInfo: IValidatorInfo
 }
 export const ValidatorModal: React.FC<IValidatorModalProps> = observer(
   (props) => {
-    const {
-      className,
-      value = [],
-      onChange,
-      visible,
-      closeModal,
-      validators,
-    } = props
+    const { className, onChange, visible, closeModal, validatorInfo } = props
 
     const theme = useTheme()
     const prefix = usePrefix('data-source-setter')
 
-    const form = createForm({})
+    const form = useMemo(() => {
+      return createForm({
+        values: validatorInfo.validators[validatorInfo.selectedKey] || {},
+      })
+    }, [validatorInfo.selectedKey])
 
     const SchemaField = createSchemaField({
       components: {
@@ -70,14 +68,14 @@ export const ValidatorModal: React.FC<IValidatorModalProps> = observer(
           visible={visible}
           onCancel={closeModal}
           onOk={() => {
-            validators.validators = validators.validators =
-              validators.validators.map((validator, ti) => {
-                if (ti !== validators.selectedKey) {
-                  return validator
-                }
-                return form.values
-              })
+            const t = validatorInfo.validators.map((validator, id) => {
+              if (id !== validatorInfo.selectedKey) {
+                return validator
+              }
+              return form.values
+            })
 
+            onChange(t)
             closeModal()
           }}
         >

@@ -1,7 +1,8 @@
-import React from 'react'
-import { createPolyInput } from './PolyInput'
-import { Input, Button, Popover, InputNumber, Select } from 'antd'
 import { TextWidget } from '@designable/react'
+// import { createPolyInput } from './PolyInput'
+import { createPolyInput } from '@designable/react-settings-form/esm/components/PolyInput'
+import { Button, Select } from 'antd'
+import React from 'react'
 
 const buildIn = [
   'url',
@@ -19,7 +20,7 @@ const buildIn = [
   'zip',
 ]
 
-const isNormalText = (value: any) => {
+const isText = (value: any) => {
   return typeof value === 'string'
 }
 
@@ -32,16 +33,21 @@ export const ValidatorInput = ({ onEditRuleClick, ...props }) => {
     {
       type: 'TEXT',
       icon: 'Text',
-      component: (props: any) => (
-        <Select
-          {...props}
-          options={buildIn.map((d) => ({ label: d, value: d }))}
-        />
-      ),
-      checker: isNormalText,
+      component: (props: any) => {
+        if (isObject(props.value)) {
+          return null
+        }
+        return (
+          <Select
+            {...props}
+            options={buildIn.map((d) => ({ label: d, value: d }))}
+          />
+        )
+      },
+      checker: isText,
     },
     {
-      type: 'EXPRESSION',
+      type: 'Object',
       icon: 'Expression',
       component: (props: any) => {
         return (

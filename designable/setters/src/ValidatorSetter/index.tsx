@@ -16,12 +16,11 @@ export const ValidatorSetter: React.FC<IValidatorSetterProps> = observer(
   (props) => {
     const { onChange, value } = props
 
-    const validators = useMemo(
-      () =>
-        observable({
-          validators: value || [],
-          selectedKey: '',
-        }),
+    const validatorInfo = useMemo(
+      () => ({
+        validators: value || [],
+        selectedKey: '',
+      }),
       [value]
     )
 
@@ -34,12 +33,12 @@ export const ValidatorSetter: React.FC<IValidatorSetterProps> = observer(
       <Fragment>
         <ValidatorList
           onChange={onChange}
-          validators={validators}
+          validatorInfo={validatorInfo}
           onEditRuleClick={openModal}
         ></ValidatorList>
 
         <ValidatorModal
-          validators={validators}
+          validatorInfo={validatorInfo}
           onChange={onChange}
           visible={modalVisible}
           closeModal={closeModal}

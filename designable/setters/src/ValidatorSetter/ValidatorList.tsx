@@ -1,57 +1,42 @@
-import React, { useMemo, Fragment, useState } from 'react'
-import { Button } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
-import {
-  ArrayItems,
-  Form,
-  Input,
-  FormItem,
-  LifeCycleTypes,
-} from '@formily/antd'
-import { createForm } from '@formily/core'
+import { TextWidget, usePrefix } from '@designable/react'
 import { observer } from '@formily/reactive-react'
-import { createSchemaField } from '@formily/react'
-import { ValidatorInput } from './ValidatorInput'
-import { usePrefix, TextWidget } from '@designable/react'
-import { Header } from './Header'
-import { traverseTree } from './shared'
-import { ITreeDataSource } from './types'
+import { Button } from 'antd'
+import React, { Fragment } from 'react'
 import './styles.less'
+import { IValidatorInfo } from './types'
+import { ValidatorInput } from './ValidatorInput'
 
 export interface IValidatorListProps {
-  onChange
-  treeDataSource: ITreeDataSource
+  onChange(): void
   onEditRuleClick(): void
-  validators: any
+  validatorInfo: IValidatorInfo
 }
 
 export const ValidatorList: React.FC<IValidatorListProps> = observer(
   (props) => {
-    const { onEditRuleClick, validators, onChange } = props
+    const { onEditRuleClick, validatorInfo, onChange } = props
     const prefix = usePrefix('validator-setter')
-    // const [validators, setValidators] = useState([])
 
     return (
       <Fragment>
         <div className={`${prefix + '-content'}`}>
-          {validators.validators.map((validator, i) => {
+          {validatorInfo.validators.map((validator, id) => {
             return (
               <ValidatorInput
-                key={i}
-                onChange={(d) => {
-                  validators.validators = validators.validators.map(
-                    (validator, ti) => {
-                      if (ti !== i) {
-                        return validator
-                      }
-                      return d
+                key={id}
+                onChange={(newValidator) => {
+                  let t = validatorInfo.validators.map((validator, tid) => {
+                    if (tid !== id) {
+                      return validator
                     }
-                  )
-                  onChange(validators.validators)
+                    return newValidator
+                  })
+                  onChange(t)
                 }}
                 value={validator}
                 onEditRuleClick={() => {
-                  validators.selectedKey = i
+                  validatorInfo.selectedKey = id
                   onEditRuleClick()
                 }}
               ></ValidatorInput>
@@ -61,7 +46,7 @@ export const ValidatorList: React.FC<IValidatorListProps> = observer(
           <Button
             block
             onClick={() => {
-              validators.validators = [...validators.validators, '']
+              onChange([...validatorInfo.validators, 'number'])
             }}
             icon={<PlusOutlined />}
           >
