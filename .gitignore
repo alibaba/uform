@@ -27,3 +27,4 @@ package.zip
 doc-site
 .lerna-changelog
 public
+.history

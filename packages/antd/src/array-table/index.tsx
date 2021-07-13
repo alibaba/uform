@@ -278,10 +278,10 @@ export const ArrayTable: ComposedArrayTable = observer(
             <ArrayBase>
               <Table
                 size="small"
+                bordered
                 rowKey={defaultRowKey}
                 {...props}
                 onChange={() => {}}
-                bordered
                 pagination={false}
                 columns={columns}
                 dataSource={dataSource}

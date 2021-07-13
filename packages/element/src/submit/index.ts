@@ -1,4 +1,3 @@
-import { merge } from 'lodash'
 import { h, useForm } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { defineComponent } from 'vue-demi'
@@ -21,13 +20,9 @@ export const Submit = observer(
           ElButton,
           {
             attrs: {
-              ...merge(
-                {
-                  nativeType: listeners?.submit ? 'button' : 'submit',
-                  type: 'primary',
-                },
-                attrs
-              ),
+              nativeType: listeners?.submit ? 'button' : 'submit',
+              type: 'primary',
+              ...attrs,
               loading:
                 attrs.loading !== undefined ? attrs.loading : form?.submitting,
             },

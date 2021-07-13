@@ -2,7 +2,6 @@ import { observable } from '@formily/reactive'
 import { observer } from '@formily/reactive-react'
 import React, { Fragment, useMemo, useState } from 'react'
 import './styles.less'
-import { IValidatorItem } from './types'
 import { ValidatorList } from './ValidatorList'
 import { ValidatorModal } from './ValidatorModal'
 
@@ -10,7 +9,7 @@ export interface IValidatorSetterProps {
   className?: string
   style?: React.CSSProperties
   onChange: (v) => void
-  value: IValidatorItem[]
+  value: any
 }
 export const ValidatorSetter: React.FC<IValidatorSetterProps> = observer(
   (props) => {

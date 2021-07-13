@@ -1092,3 +1092,26 @@ test('form lifecycle can be triggered after call form.setXXX', () => {
   expect(initialValuesTriggerNum).toEqual(3)
   expect(valuesTriggerNum).toEqual(6)
 })
+
+test('form values change with array field(default value)', async () => {
+  const handler = jest.fn()
+  const form = attach(
+    createForm({
+      effects() {
+        onFormValuesChange(handler)
+      },
+    })
+  )
+  const array = attach(
+    form.createArrayField({
+      name: 'array',
+      initialValue: [
+        {
+          hello: 'world',
+        },
+      ],
+    })
+  )
+  await array.push({})
+  expect(handler).toBeCalledTimes(2)
+})

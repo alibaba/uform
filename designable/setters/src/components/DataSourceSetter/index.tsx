@@ -10,13 +10,13 @@ import { transformDataToValue, transformValueToData } from './shared'
 import { IDataSourceItem, ITreeDataSource } from './types'
 import './styles.less'
 
-export interface IBorderStyleSetterProps {
+export interface IDataSourceSetterProps {
   className?: string
   style?: React.CSSProperties
-  onChange: (v) => void
+  onChange: (dataSource: IDataSourceItem[]) => void
   value: IDataSourceItem[]
 }
-export const DataSourceSetter: React.FC<IBorderStyleSetterProps> = observer(
+export const DataSourceSetter: React.FC<IDataSourceSetterProps> = observer(
   (props) => {
     const { className, value = [], onChange } = props
     const theme = useTheme()
@@ -32,17 +32,16 @@ export const DataSourceSetter: React.FC<IBorderStyleSetterProps> = observer(
     )
     const openModal = () => setModalVisible(true)
     const closeModal = () => setModalVisible(false)
-
     return (
       <Fragment>
         <Button block onClick={openModal}>
           <TextWidget token="SettingComponents.DataSourceSetter.configureDataSource" />
         </Button>
         <Modal
-          width={'65%'}
           title={
             <TextWidget token="SettingComponents.DataSourceSetter.configureDataSource" />
           }
+          width="65%"
           bodyStyle={{ padding: 10 }}
           transitionName=""
           maskTransitionName=""

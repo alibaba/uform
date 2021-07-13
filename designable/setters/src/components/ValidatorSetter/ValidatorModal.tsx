@@ -72,7 +72,7 @@ export const ValidatorModal: React.FC<IValidatorModalProps> = observer(
           onCancel={closeModal}
           onOk={() => {
             const t = validatorInfo.validators.map((validator, id) => {
-              if (id !== validatorInfo.selectedKey) {
+              if ('' + id !== validatorInfo.selectedKey) {
                 return validator
               }
               return form.values

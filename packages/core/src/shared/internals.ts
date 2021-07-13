@@ -10,6 +10,7 @@ import {
   isPlainObj,
   toArr,
   isNumberLike,
+  shallowClone,
 } from '@formily/shared'
 import { ValidatorTriggerType, validate } from '@formily/validator'
 import { action, batch, toJS } from '@formily/reactive'
@@ -432,16 +433,16 @@ export const initFieldValue = (field: Field, designable: boolean) => {
       field.props.initialValue
     )
     if (isEmptyValue && !isEmptyInitialValue) {
-      field.value = field.props.initialValue
+      field.value = shallowClone(field.props.initialValue)
     } else if (isValid(field.props.value)) {
       field.value = field.props.value
     } else if (isValid(field.props.initialValue)) {
-      field.value = field.props.initialValue
+      field.value = shallowClone(field.props.initialValue)
     }
   }
   if (designable) {
     if (isValid(field.props.initialValue)) {
-      field.initialValue = field.props.initialValue
+      field.initialValue = shallowClone(field.props.initialValue)
     }
     if (isValid(field.props.value)) {
       field.value = field.props.value

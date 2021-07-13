@@ -232,11 +232,22 @@ interface IFormDialog {
     renderer: (resolve: () => void, reject: () => void) => React.ReactElement
   ): FormDialogHandler
   (
-    title: ModalProps, //如果是对象，则作为ModalProps传入
+    title: IFormModalProps, //如果是对象，则作为IFormModalProps传入
     renderer: (resolve: () => void, reject: () => void) => React.ReactElement
   ): FormDialogHandler
 }
 ```
+
+### IFormModalProps
+
+```ts pure
+interface IFormModalProps extends ModalProps {
+  // 如果返回值是true时，点取消或确定后不会关闭dialog，此时关闭dialog需要手动调用FormDialogHandler.close()
+  onCancel?: (e: React.MouseEvent<HTMLElement>) => boolean | void
+}
+```
+
+`ModalProps`类型定义参考 ant design [Modal API](https://ant.design/components/modal-cn/#API)
 
 ### FormDialog.Footer
 

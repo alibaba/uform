@@ -1,6 +1,20 @@
 @import '~antd/lib/style/themes/default.less';
 
 .dn-data-source-setter {
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    transition: all 0.25s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
   &-node-title {
     display: flex;
     justify-content: space-between;

@@ -1,6 +1,6 @@
 {
   "name": "@formily/reactive-vue",
-  "version": "2.0.0-beta.76",
+  "version": "2.0.0-beta.77",
   "license": "MIT",
   "main": "lib",
   "module": "esm",
@@ -33,7 +33,7 @@
     "vue": "^2.6.12"
   },
   "dependencies": {
-    "@formily/reactive": "2.0.0-beta.76",
+    "@formily/reactive": "2.0.0-beta.77",
     "vue-demi": "^0.9.0"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@formily/designable-setters",
-  "version": "2.0.0-beta.76",
+  "version": "2.0.0-beta.77",
   "private": true,
   "license": "MIT",
   "main": "lib",
@@ -40,13 +40,15 @@
     "react-is": ">=16.8.0 || >=17.0.0"
   },
   "dependencies": {
-    "@designable/core": "^0.3.28",
-    "@designable/formily": "^0.3.28",
-    "@designable/react": "^0.3.28",
-    "@formily/antd": "2.0.0-beta.76",
-    "@formily/core": "2.0.0-beta.76",
-    "@formily/react": "2.0.0-beta.76",
-    "@formily/shared": "2.0.0-beta.76"
+    "@designable/core": "^0.4.7",
+    "@designable/formily": "^0.4.7",
+    "@designable/react": "^0.4.7",
+    "@designable/shared": "^0.4.7",
+    "@designable/react-settings-form": "^0.4.7",
+    "@formily/antd": "2.0.0-beta.77",
+    "@formily/core": "2.0.0-beta.77",
+    "@formily/react": "2.0.0-beta.77",
+    "@formily/shared": "2.0.0-beta.77"
   },
   "publishConfig": {
     "access": "public"

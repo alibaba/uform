@@ -43,5 +43,5 @@ export const ValidatorInput = ({ onEditRuleClick, ...props }) => {
       },
       checker: isObject,
     },
-  ])({ ...props })
+  ])({ ...props } as any)
 }

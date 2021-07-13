@@ -49,6 +49,10 @@ export default {
             path: 'https://fusion.formilyjs.org',
           },
           {
+            title: '@formily/element',
+            path: 'https://element.formilyjs.org',
+          },
+          {
             title: 'aliyun teamix',
             path: 'https://formily.dg.aliyun-inc.com/',
           },
@@ -57,6 +61,10 @@ export default {
       {
         title: 'Tools',
         children: [
+          {
+            title: 'Formily Designer',
+            path: 'https://designable-antd.formilyjs.org/',
+          },
           {
             title: 'Designable',
             path: 'https://github.com/alibaba/designable',
@@ -124,6 +132,10 @@ export default {
             path: 'https://fusion.formilyjs.org',
           },
           {
+            title: '@formily/element',
+            path: 'https://element.formilyjs.org',
+          },
+          {
             title: 'aliyun teamix',
             path: 'https://formily.dg.aliyun-inc.com/',
           },
@@ -132,6 +144,10 @@ export default {
       {
         title: '工具',
         children: [
+          {
+            title: 'Formily 设计器',
+            path: 'https://designable-antd.formilyjs.org/',
+          },
           {
             title: '通用搭建引擎',
             path: 'https://github.com/alibaba/designable',

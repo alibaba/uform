@@ -1,0 +1,90 @@
+@import '~antd/lib/style/themes/default.less';
+
+.dn-reactions-setter {
+  width: 100%;
+  min-height: 523px;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    transition: all 0.25s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .@{ant-prefix}-collapse {
+    border: 1px solid @border-color-split;
+
+    &-header {
+      padding: 8px 10px !important;
+      background-color: @background-color-light !important;
+      border-bottom: 1px solid @border-color-split !important;
+      font-weight: 500 !important;
+
+      .@{ant-prefix}-collapse-arrow {
+        margin-right: 4px !important;
+      }
+    }
+
+    &-item {
+      border: none !important;
+    }
+
+    &-content {
+      border: none !important;
+    }
+
+    &-content-box {
+      padding: 12px 0 12px 0 !important;
+    }
+  }
+}
+
+.dn-field-property-setter {
+  display: flex;
+  height: 200px;
+
+  &-coder-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    height: 100%;
+    padding-left: 4px;
+    position: relative;
+  }
+
+  &-coder-start {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 4px;
+    color: @text-color;
+    padding-left: 20px;
+    font-weight: 300;
+    flex-grow: 0;
+    opacity: 0.96;
+  }
+
+  &-coder-end {
+    font-size: 18px;
+    color: @text-color;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 20px;
+    line-height: 30px;
+    font-weight: 300;
+    flex-grow: 0;
+    opacity: 0.96;
+  }
+
+  &-coder {
+    min-width: 0;
+    flex-grow: 2;
+  }
+}

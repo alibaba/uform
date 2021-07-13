@@ -1,6 +1,6 @@
 {
   "name": "@formily/vue",
-  "version": "2.0.0-beta.76",
+  "version": "2.0.0-beta.77",
   "license": "MIT",
   "main": "lib",
   "module": "esm",
@@ -36,12 +36,12 @@
     "vuepress-plugin-typescript": "^0.3.1"
   },
   "dependencies": {
-    "@formily/core": "2.0.0-beta.76",
-    "@formily/json-schema": "2.0.0-beta.76",
-    "@formily/reactive": "2.0.0-beta.76",
-    "@formily/reactive-vue": "2.0.0-beta.76",
-    "@formily/shared": "2.0.0-beta.76",
-    "@formily/validator": "2.0.0-beta.76",
+    "@formily/core": "2.0.0-beta.77",
+    "@formily/json-schema": "2.0.0-beta.77",
+    "@formily/reactive": "2.0.0-beta.77",
+    "@formily/reactive-vue": "2.0.0-beta.77",
+    "@formily/shared": "2.0.0-beta.77",
+    "@formily/validator": "2.0.0-beta.77",
     "@type-helper/vue2": "npm:vue@2",
     "@type-helper/vue3": "npm:vue@3",
     "vue-demi": "^0.9.0",

@@ -7,7 +7,7 @@ import './styles.less'
 import { IValidatorInfo } from './types'
 import { ValidatorInput } from './ValidatorInput'
 export interface IValidatorListProps {
-  onChange(): void
+  onChange(val: any): void
   onEditRuleClick(): void
   validatorInfo: IValidatorInfo
 }
@@ -35,7 +35,7 @@ export const ValidatorList: React.FC<IValidatorListProps> = observer(
                   }}
                   value={validator}
                   onEditRuleClick={() => {
-                    validatorInfo.selectedKey = id
+                    validatorInfo.selectedKey = '' + id
                     onEditRuleClick()
                   }}
                 ></ValidatorInput>

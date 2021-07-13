@@ -203,7 +203,7 @@ const findComponent = (
       }
     }
   }
-  if (isFn(path)) {
+  if (isFn(path) || (path?.['$$typeof'] && isFn(path['type']))) {
     return path
   }
   return component
@@ -402,10 +402,20 @@ const getReactions = (schema: ISchema, options: ISchemaFieldFactoryOptions) => {
 
   const parseDependencies = (
     field: Formily.Core.Models.Field,
-    dependencies: string[] | object
+    dependencies: Array<string | { name: string; source: string }> | object
   ) => {
     if (isArr(dependencies)) {
-      return dependencies.map((pattern) => queryDependency(field, pattern))
+      const results = []
+      dependencies.forEach((pattern) => {
+        if (isStr(pattern)) {
+          results.push(queryDependency(field, pattern))
+        } else if (isPlainObj(pattern)) {
+          if (pattern.name && pattern.source) {
+            results[pattern.name] = queryDependency(field, pattern.source)
+          }
+        }
+      })
+      return results
     } else if (isPlainObj(dependencies)) {
       return reduce(
         dependencies,

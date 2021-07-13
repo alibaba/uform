@@ -23,7 +23,6 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
     componentName: 'DesignableField',
     props: {
       title: 'Select',
-      type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'Select',
     },
@@ -32,7 +31,6 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
     componentName: 'DesignableField',
     props: {
       title: 'Tree Select',
-      type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'TreeSelect',
     },
@@ -41,7 +39,6 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
     componentName: 'DesignableField',
     props: {
       title: 'Cascader',
-      type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'Cascader',
     },
@@ -49,7 +46,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'string | number',
       title: 'Radio Group',
       'x-decorator': 'FormItem',
       'x-component': 'Radio.Group',
@@ -62,7 +59,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'Array<string | number>',
       title: 'Checkbox Group',
       'x-decorator': 'FormItem',
       'x-component': 'Checkbox.Group',
@@ -75,7 +72,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'number',
       title: 'Slider',
       'x-decorator': 'FormItem',
       'x-component': 'Slider',
@@ -84,7 +81,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'number',
       title: 'Rate',
       'x-decorator': 'FormItem',
       'x-component': 'Rate',
@@ -102,7 +99,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: '[string,string]',
       title: 'DateRangePicker',
       'x-decorator': 'FormItem',
       'x-component': 'DatePicker.RangePicker',
@@ -120,7 +117,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: '[string,string]',
       title: 'TimeRangePicker',
       'x-decorator': 'FormItem',
       'x-component': 'TimePicker.RangePicker',
@@ -129,7 +126,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'number',
       title: 'NumberPicker',
       'x-decorator': 'FormItem',
       'x-component': 'NumberPicker',
@@ -147,7 +144,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'Array<string>',
       title: 'Transfer',
       'x-decorator': 'FormItem',
       'x-component': 'Transfer',
@@ -156,7 +153,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'Array<object>',
       title: 'Upload',
       'x-decorator': 'FormItem',
       'x-component': 'Upload',
@@ -168,7 +165,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'Array<object>',
       title: 'Drag Upload',
       'x-decorator': 'FormItem',
       'x-component': 'Upload.Dragger',
@@ -180,7 +177,7 @@ GlobalDragSource.appendSourcesByGroup('inputs', [
   {
     componentName: 'DesignableField',
     props: {
-      type: 'string',
+      type: 'boolean',
       title: 'Switch',
       'x-decorator': 'FormItem',
       'x-component': 'Switch',

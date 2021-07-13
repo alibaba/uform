@@ -1,3 +1,2 @@
 import './locales'
-export * from './DataSourceSetter/index'
-export * from './ValidatorSetter/index'
+export * from './components'

@@ -8,6 +8,7 @@ import { Header } from './Header'
 import { traverseTree } from './shared'
 import { ITreeDataSource, INodeItem } from './types'
 import './styles.less'
+import { GlobalRegistry } from '@designable/core'
 
 export interface ITreePanelProps {
   treeDataSource: ITreeDataSource
@@ -75,16 +76,21 @@ export const TreePanel: React.FC<ITreePanelProps> = observer((props) => {
             type="text"
             onClick={() => {
               const uuid = uid()
-              props.treeDataSource.dataSource =
-                props.treeDataSource.dataSource.concat({
-                  key: uuid,
-                  duplicateKey: uuid,
-                  map: [
-                    { label: 'label', value: 'Label Text' },
-                    { label: 'value', value: 'Actual Value' },
-                  ],
-                  children: [],
-                })
+              const dataSource = props.treeDataSource.dataSource
+              props.treeDataSource.dataSource = dataSource.concat({
+                key: uuid,
+                duplicateKey: uuid,
+                map: [
+                  {
+                    label: 'label',
+                    value: `${GlobalRegistry.getDesignerMessage(
+                      `SettingComponents.DataSourceSetter.item`
+                    )} ${dataSource.length + 1}`,
+                  },
+                  { label: 'value', value: uuid },
+                ],
+                children: [],
+              })
             }}
             icon={<IconWidget infer="Add" />}
           >

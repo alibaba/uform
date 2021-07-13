@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.0-beta.76(2021-07-05)
+
+### :beetle: Bug Fixes
+
+1. [fix(reactive): fix Tracker memo leak in StrictMode (#1715)](https://github.com/alibaba/formily/commit/e9f23c39) :point_right: ( [Janry](https://github.com/Janry) )
+
 ## v2.0.0-beta.75(2021-07-03)
 
 ### :blush: Other Changes
@@ -901,33 +907,3 @@
 ### :beetle: Bug Fixes
 
 1. [fix(core): fix value is overwritten by default (#917)](https://github.com/alibaba/formily/commit/f3ad1598) :point_right: ( [Janry](https://github.com/Janry) )
-
-## v1.2.0(2020-06-28)
-
-### :tada: Enhancements
-
-1. [feat: support antd v3 (#913)](https://github.com/alibaba/formily/commit/7b4cf527) :point_right: ( [quirkyvar](https://github.com/quirkyvar) )
-
-1. [feat: add ie compat mode of grid(ie) (#912)](https://github.com/alibaba/formily/commit/b7313976) :point_right: ( [quirkyvar](https://github.com/quirkyvar) )
-
-1. [feat(layout): add ts type desc of MegaLayout and fix array-inc doc (#905)](https://github.com/alibaba/formily/commit/f37a0934) :point_right: ( [quirkyvar](https://github.com/quirkyvar) )
-
-1. [feat(layout): add inset mode for mega layout (#900)](https://github.com/alibaba/formily/commit/6f173317) :point_right: ( [quirkyvar](https://github.com/quirkyvar) )
-
-1. [feat: update snapshot and layout test for nested grid (#894)](https://github.com/alibaba/formily/commit/72619eca) :point_right: ( [quirkyvar](https://github.com/quirkyvar) )
-
-### :beetle: Bug Fixes
-
-1. [fix(core): fix event trigger order (#908)](https://github.com/alibaba/formily/commit/ccac95bc) :point_right: ( [Janry](https://github.com/Janry) )
-
-1. [fix(core): sync form state (#906)](https://github.com/alibaba/formily/commit/de32802a) :point_right: ( [Janry](https://github.com/Janry) )
-
-1. [fix(react): fix ArrayTable index and FormSpy (#904)](https://github.com/alibaba/formily/commit/944891f7) :point_right: ( [Janry](https://github.com/Janry) )
-
-1. [fix(layout): inset mode comflict with labelAlign top (#903)](https://github.com/alibaba/formily/commit/9906a0ce) :point_right: ( [quirkyvar](https://github.com/quirkyvar) )
-
-1. [fix(core): fix value sync bug](https://github.com/alibaba/formily/commit/62c345c4) :point_right: ( [janrywang](https://github.com/janrywang) )
-
-1. [fix(core): fix types of errors/warnings in IFormState (#898)](https://github.com/alibaba/formily/commit/b6bb1daa) :point_right: ( [Xianming Zhong](https://github.com/Xianming Zhong) )
-
-1. [fix(core): fix array list mutators (#888)](https://github.com/alibaba/formily/commit/50f4e9e5) :point_right: ( [Janry](https://github.com/Janry) )

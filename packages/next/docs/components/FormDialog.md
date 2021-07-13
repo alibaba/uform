@@ -310,11 +310,22 @@ interface IFormDialog {
     renderer: (resolve: () => void, reject: () => void) => React.ReactElement
   ): FormDialogHandler
   (
-    title: ModalProps, //如果是对象，则作为ModalProps传入
+    title: IFormDialogProps, //如果是对象，则作为IFormDialogProps传入
     renderer: (resolve: () => void, reject: () => void) => React.ReactElement
   ): FormDialogHandler
 }
 ```
+
+### IFormDialogProps
+
+```ts pure
+interface IFormDialogProps extends DialogProps {
+  // 如果返回值是true时，点取消或确定后不会关闭dialog，如果需要关闭dialog需要手动调用FormDialogHandler.close()
+  onCancel?: (e: React.MouseEvent<Element>) => boolean | void
+}
+```
+
+`DialogProps` 类型定义参考 fusion [Dialog API](https://fusion.design/pc/component/dialog?themeid=2#API)
 
 ### FormDialog.Footer
 

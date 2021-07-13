@@ -1,6 +1,6 @@
 {
   "name": "@formily/designable-antd",
-  "version": "2.0.0-beta.76",
+  "version": "2.0.0-beta.77",
   "private": true,
   "license": "MIT",
   "main": "lib",
@@ -30,7 +30,7 @@
     "start": "webpack-dev-server --config playground/webpack.dev.ts"
   },
   "devDependencies": {
-    "@designable/react-settings-form": "^0.3.28",
+    "@designable/react-settings-form": "^0.4.7",
     "autoprefixer": "^9.0",
     "file-loader": "^5.0.2",
     "fs-extra": "^8.1.0",
@@ -56,13 +56,14 @@
     "react-is": ">=16.8.0 || >=17.0.0"
   },
   "dependencies": {
-    "@designable/core": "^0.3.28",
-    "@designable/formily": "^0.3.28",
-    "@designable/react": "^0.3.28",
-    "@formily/antd": "2.0.0-beta.76",
-    "@formily/core": "2.0.0-beta.76",
-    "@formily/react": "2.0.0-beta.76",
-    "@formily/shared": "2.0.0-beta.76"
+    "@designable/core": "^0.4.7",
+    "@designable/formily": "^0.4.7",
+    "@designable/react": "^0.4.7",
+    "@formily/antd": "2.0.0-beta.77",
+    "@formily/core": "2.0.0-beta.77",
+    "@formily/react": "2.0.0-beta.77",
+    "@formily/shared": "2.0.0-beta.77",
+    "@formily/designable-setters": "2.0.0-beta.77"
   },
   "publishConfig": {
     "access": "public"

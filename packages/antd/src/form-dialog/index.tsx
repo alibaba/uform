@@ -13,13 +13,17 @@ type FormDialogContent =
 
 type ModalTitle = string | number | React.ReactElement
 
+interface IFormModalProps extends ModalProps {
+  onCancel?: (e: React.MouseEvent<HTMLElement>) => boolean | void
+}
+
 const isModalTitle = (props: any): props is ModalTitle => {
   return (
     isNum(props) || isStr(props) || isBool(props) || React.isValidElement(props)
   )
 }
 
-const getModelProps = (props: any): ModalProps => {
+const getModelProps = (props: any): IFormModalProps => {
   if (isModalTitle(props)) {
     return {
       title: props,
@@ -41,7 +45,7 @@ export interface IFormDialogComponentProps {
 }
 
 export function FormDialog(
-  title: ModalProps,
+  title: IFormModalProps,
   content: FormDialogContent
 ): IFormDialog
 export function FormDialog(
@@ -79,8 +83,8 @@ export function FormDialog(title: any, content: any): IFormDialog {
         {...modal}
         visible={visible}
         onCancel={(e) => {
-          modal?.onCancel?.(e)
-          formDialog.close()
+          const closeable = !modal?.onCancel?.(e)
+          closeable && formDialog.close()
         }}
         onOk={async (e) => {
           modal?.onOk?.(e)

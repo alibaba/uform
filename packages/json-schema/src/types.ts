@@ -58,7 +58,9 @@ export type SchemaEffectTypes =
 
 export type SchemaReaction<Field = any> =
   | {
-      dependencies?: string[] | Record<string, string>
+      dependencies?:
+        | Array<string | { name?: string; source?: string }>
+        | Record<string, string>
       when?: string | boolean
       target?: string
       effects?: SchemaEffectTypes[]
