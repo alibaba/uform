@@ -5,25 +5,28 @@ import { createSchemaField } from '@formily/react'
 import { observer } from '@formily/reactive-react'
 import { Modal } from 'antd'
 import React, { Fragment, useMemo } from 'react'
+import { buildIn } from './shared'
 import './styles.less'
 import { IValidatorInfo } from './types'
 
-const fields = [
-  'triggerType',
-  'format',
-  'validator',
-  'required',
-  'pattern',
+const SchemaField = createSchemaField({
+  components: {
+    Select,
+    FormItem,
+    Input,
+    // ArrayItems,
+    // ValueInput,
+  },
+})
+
+const numberFields = [
+  'len',
   'max',
+  'min',
   'maximum',
+  'minimum',
   'exclusiveMaximum',
   'exclusiveMinimum',
-  'minimum',
-  'min',
-  'len',
-  'whitespace',
-  'enum',
-  'message',
 ]
 
 // const actions = createFormActions()
@@ -79,17 +82,83 @@ export const ValidatorModal: React.FC<IValidatorModalProps> = observer(
             closeModal()
           }}
         >
-          <Form form={form}>
+          <Form form={form} labelWidth={150} wrapperWidth={300}>
             <SchemaField>
-              {fields.map((d, i) => (
-                <SchemaField.String
+              <SchemaField.String
+                name="triggerType"
+                title="triggerType"
+                x-decorator="FormItem"
+                x-component="Select"
+                enum={[
+                  { label: 'onInput', value: 'onInput' },
+                  { label: 'onFocus', value: 'onFocus' },
+                  { label: 'onBlur', value: 'onBlur' },
+                ]}
+              />
+              <SchemaField.String
+                name="format"
+                title="format"
+                x-decorator="FormItem"
+                x-component="Select"
+                enum={buildIn.map((d) => ({ label: d, value: d }))}
+              />
+              <SchemaField.String
+                name="validator"
+                title="validator"
+                x-decorator="FormItem"
+                x-component="Input"
+              />
+              <SchemaField.String
+                name="required"
+                title="required"
+                x-decorator="FormItem"
+                x-component="Select"
+                enum={[
+                  { label: 'true', value: 'true' },
+                  { label: 'false', value: 'false' },
+                ]}
+              />
+              <SchemaField.String
+                name="pattern"
+                title="pattern"
+                x-decorator="FormItem"
+                x-component="Input"
+              />
+
+              {numberFields.map((d, i) => (
+                <SchemaField.Number
                   key={i}
                   name={d}
                   title={d}
-                  x-component="Input"
                   x-decorator="FormItem"
+                  x-component="Input"
                 />
               ))}
+
+              <SchemaField.String
+                name="whitespace"
+                title="whitespace"
+                x-decorator="FormItem"
+                x-component="Select"
+                enum={[
+                  { label: 'true', value: 'true' },
+                  { label: 'false', value: 'false' },
+                ]}
+              />
+
+              <SchemaField.String
+                name="enum"
+                title="enum"
+                x-decorator="FormItem"
+                x-component="Input"
+              />
+
+              <SchemaField.String
+                name="message"
+                title="message"
+                x-decorator="FormItem"
+                x-component="Input"
+              />
             </SchemaField>
           </Form>
         </Modal>

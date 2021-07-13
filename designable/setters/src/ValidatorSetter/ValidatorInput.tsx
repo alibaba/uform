@@ -3,22 +3,7 @@ import { TextWidget } from '@designable/react'
 import { createPolyInput } from '@designable/react-settings-form/esm/components/PolyInput'
 import { Button, Select } from 'antd'
 import React from 'react'
-
-const buildIn = [
-  'url',
-  'email',
-  'ipv6',
-  'ipv4',
-  'number',
-  'integer',
-  'idcard',
-  'qq',
-  'phone',
-  'money',
-  'zh',
-  'date',
-  'zip',
-]
+import { buildIn } from './shared'
 
 const isText = (value: any) => {
   return typeof value === 'string'
