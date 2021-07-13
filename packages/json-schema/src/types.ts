@@ -270,4 +270,6 @@ export type ISchema<
   ['x-read-only']?: boolean
 
   ['x-read-pretty']?: boolean
+
+  [key: `x-${string | number}`]: any
 }>
